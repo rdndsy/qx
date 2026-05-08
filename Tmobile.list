@@ -1,27 +1,26 @@
-# NAME: T-Mobile
-# AUTHOR: Gemini (AI Collaborator)
-# REPO: Customized for WiTSnet User
-# UPDATED: 2026-05-08 11:00:00
-# DESCRIPTION: 专门针对 T-Mobile WiFi Calling 及预付费账户管理的分流规则
+# NAME: T-Mobile_WiFiCalling
+# UPDATED: 2026-05-08
 
-# --- WiFi Calling 核心握手域名 (ePDG) ---
-# T-Mobile USA 核心接入点 (MCC 310, MNC 260)
+# --- 1. Wi-Fi Calling 核心 ePDG 域名 ---
 HOST,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,T-Mobile
 HOST,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,T-Mobile
-HOST-SUFFIX,3gppnetwork.org,T-Mobile
+HOST,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org,T-Mobile
+HOST-SUFFIX,mnc260.mcc310.pub.3gppnetwork.org,T-Mobile
 
-# --- T-Mobile 官方服务与账户管理 ---
+# --- 2. T-Mobile 账户 / VVM / 证书相关 ---
 HOST-SUFFIX,t-mobile.com,T-Mobile
 HOST-SUFFIX,t-mo.co,T-Mobile
 HOST-SUFFIX,tmomail.net,T-Mobile
-HOST-SUFFIX,t-mobile.com.edgesuite.net,T-Mobile
 HOST-SUFFIX,tmocache.com,T-Mobile
-
-# --- 关键词匹配 ---
-HOST-KEYWORD,tmobile,T-Mobile
-HOST-KEYWORD,t-mobile,T-Mobile
-HOST-KEYWORD,epdg,T-Mobile
-
-# --- 视觉语音信箱与相关服务 ---
 HOST,vvm.t-mobile.com,T-Mobile
 HOST,ers.t-mobile.com,T-Mobile
+HOST,crl.t-mobile.com,T-Mobile
+
+# --- 3. T-Mobile Wi-Fi Calling IP 段 ---
+IP-CIDR,208.54.0.0/16,T-Mobile,no-resolve
+IP-CIDR,66.94.0.0/19,T-Mobile,no-resolve
+IP-CIDR,206.29.177.36/32,T-Mobile,no-resolve
+
+# --- 4. 账户管理关键词兜底，可选 ---
+HOST-KEYWORD,tmobile,T-Mobile
+HOST-KEYWORD,t-mobile,T-Mobile
